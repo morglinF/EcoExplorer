@@ -15,6 +15,7 @@
   },
   "proxy": "http://api.api-ninjas.com",
   "scripts": {
+    "build:css": "tailwindcss build src/index.css -o src/tailwind-output.css",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",

@@ -6,13 +6,20 @@ export default function Home() {
     { name: "Cheetah" },
     { name: "Lion" },
     { name: "Elephant" },
+    { name: "Panda" },
+    { name: "Zebra" },
+    { name: "Tiger" },
+    { name: "Monkey" },
+    { name: "Eagle" },
+    { name: "Elephant" },
     { name: "Giraffe" },
     { name: "Zebra" },
     { name: "Leopard" },
     { name: "Rhino" },
     { name: "Hippo" },
     { name: "Hyena" },
-    { name: "Buffalo" }
+    { name: "Buffalo" },
+
   ]);
   const [text, setText] = useState("");
   const [searched, setSearched] = useState(false);
@@ -48,8 +55,9 @@ export default function Home() {
   };
 
   return (
-    <>
-      <h1 className="text-blue-600 text-center text-4xl mt-10 font-bold">Eco Explorer</h1>
+    <div className="bg-gradient-to-r from-green-400 to-green-600 min-h-screen">
+  
+      <h1 className="text-white text-center text-4xl mt-10 font-bold drop-shadow-lg">Eco Explorer</h1>
       <form
         onSubmit={handleSubmit}
         className="max-w-xl mx-auto text-center my-6"
@@ -60,13 +68,13 @@ export default function Home() {
           name="search"
           id="search"
           placeholder="Search for an animal"
-          className="py-2 px-4 rounded shadow w-full bg-yellow-400 text-white placeholder-white"
+          className="py-2 px-4 rounded shadow w-full bg-yellow-300 text-black placeholder-gray-600"
           value={text}
           onChange={(e) => setText(e.target.value)}
         />
         <button
           type="submit"
-          className="mt-2 py-2 px-4 bg-green-500 text-white rounded hover:bg-green-600 transition duration-200"
+          className="mt-2 py-2 px-4 bg-green-600 text-white rounded hover:bg-green-700 transition duration-200"
         >
           Search
         </button>
@@ -80,18 +88,16 @@ export default function Home() {
             <Link
               to={`/${animal.name}`}
               key={animal.name}
-              className="bg-blue-400 p-6 rounded shadow-lg hover:bg-blue-500 transition-all duration-200"
+              className="bg-blue-500 p-6 rounded-lg shadow-lg hover:bg-blue-600 transition-all duration-200"
             >
               <article>
-                <h3 className="text-white text-lg font-bold mb-4">
-                  {animal.name}
-                </h3>
-                <p className="text-yellow-300">Click for more details!</p>
+                <h3 className="text-white text-lg font-bold mb-4">{animal.name}</h3>
+                <p className="text-yellow-200">Click for more details!</p>
               </article>
             </Link>
           ))}
         </div>
       </section>
-    </>
+    </div>
   );
 }
