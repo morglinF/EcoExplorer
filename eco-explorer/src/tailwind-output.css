@@ -848,3 +848,11 @@ code {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
+/* tailwind-output.css */
+@layer utilities {
+.background-image {
+  background-image: url('/images/background.jpg');
+  background-size: cover;
+  background-position: center;
+}
+}

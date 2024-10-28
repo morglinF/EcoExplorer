@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import Navbar from "./Navbar";
 
 export default function Home() {
   const [animals, setAnimals] = useState([
@@ -55,8 +56,10 @@ export default function Home() {
   };
 
   return (
-    <div className="bg-gradient-to-r from-green-400 to-green-600 min-h-screen">
-  
+    <div className="bg-gradient-to-r from-green-400 to-green-600 min-h-screen"
+    style={{ backgroundImage: `url('/images/background.jpg')` }}
+  >
+    <Navbar> </Navbar>
       <h1 className="text-white text-center text-4xl mt-10 font-bold drop-shadow-lg">Eco Explorer</h1>
       <form
         onSubmit={handleSubmit}
