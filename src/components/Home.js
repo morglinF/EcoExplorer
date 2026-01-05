@@ -1,11 +1,15 @@
 import React, { useState } from "react";
 import { FiSearch } from "react-icons/fi";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 import Navbar from "./Navbar";
 
+
 export default function Home() {
+
   const [animals, setAnimals] = useState([
     { name: "Cheetah" },
+    { name:"Cow"},
     { name: "Lion" },
     { name: "Elephant" },
     { name: "Panda" },
@@ -20,6 +24,7 @@ export default function Home() {
     { name: "Hyena" },
     { name: "Buffalo" },
   ]);
+  
 
   const [text, setText] = useState("");
   const [searched, setSearched] = useState(false);
@@ -74,7 +79,7 @@ export default function Home() {
     <div
       className="bg-gradient-to-r from-green-500 to-green-700 min-h-screen"
       style={{
-        // backgroundImage: "url('/images/background.jpg')",
+        // backgroundImage: "url('/images/panda.jpg')",
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}
@@ -88,7 +93,11 @@ export default function Home() {
           className="max-w-xl mx-auto text-center space-y-4"
           autoComplete="off"
         >
-          <div className="relative">
+          <motion.div className="relative"
+           whileInView={{ opacity: 1, y: 0 }}
+        initial={{ opacity: 0, y: 100 }}
+        transition={{ duration: 0.5 }}
+          >
             <FiSearch className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" />
             <input
             className="pl-10 border rounded-md w-full focus:outline-none focus:ring-2 focus:ring-green-300"
@@ -96,7 +105,7 @@ export default function Home() {
             id="search"
             value={text}
             onChange={(e) => setText(e.target.value)}/>
-            </div>
+            </motion.div>
         </form>
 
         {error && (
@@ -108,22 +117,42 @@ export default function Home() {
             <p className="text-center text-white font-medium">No animals found.</p>
           )}
 
-          {animals.length > 0 && (
+         
+
+               {animals.length > 0 && (
             <>
-              <div className="relative w-full max-w-md h-72 mt-10">
+             <motion.div className="relative w-full max-w-4xl h-96 mt-10"
+                  whileInView={{ opacity: 1, y: 0 }}
+        initial={{ opacity: 0, y: 100 }}
+        transition={{ duration: 0.5 }}
+             >
                 <Link
                   to={`/${currentAnimal.name}`}
                   key={currentAnimal.name}
                   className="group absolute inset-0 bg-white bg-opacity-10 backdrop-blur-md rounded-xl p-6 shadow-lg transform transition-transform duration-500 hover:scale-105"
                 >
-                  <h3 className="text-3xl font-bold text-white group-hover:text-yellow-200 text-center mb-2">
+                  <motion.h3 className="text-3xl font-bold text-white group-hover:text-yellow-200 text-center mb-2"
+                       whileInView={{ opacity: 1, x: 0 }}
+                       initial={{ opacity: 0, x: 100 }}
+                       transition={{ duration: 0.5 }}
+                  >
                     {currentAnimal.name}
-                  </h3>
-                  <p className="text-yellow-100 text-center">
+                  </motion.h3>
+                <img
+                src={`/images/${currentAnimal.name.toLowerCase()}.jpg`}
+                alt={currentAnimal.name}
+                className="w-full h-60 object-contain  rounded-lg"/>
+                <motion.p className="text-yellow-100 text-center"
+                     whileInView={{ opacity: 1, y: 0 }}
+        initial={{ opacity: 0, y: 60 }}
+        transition={{ duration: 0.5 }}
+                >
                     Click to explore this animal
-                  </p>
+                  </motion.p>
                 </Link>
-              </div>
+              </motion.div>
+              
+              
 
               <div className="mt-8 flex space-x-4">
                 <button
