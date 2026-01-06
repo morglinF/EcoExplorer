@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
+import { motion } from "framer-motion";
 
 export default function Animal() {
   const [animalData, setAnimalData] = useState([]);
@@ -60,13 +61,25 @@ export default function Animal() {
             className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start"
           >
             <article>
-              <h1 className="text-4xl font-bold text-blue-700 mb-6">{item.name}</h1>
+              <motion.h1 className="text-4xl font-bold text-blue-700 mb-6"
+              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, y: 60 }}
+              transition={{ duration: 0.5 }}
+              >{item.name}</motion.h1>
 
-              <p className="mb-6 text-gray-700">
+              <motion.p className="mb-6 text-gray-700"
+              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, x: -60 }}
+              transition={{ duration: 0.5 }}
+              >
                 <strong>Scientific Name:</strong> {item.taxonomy?.scientific_name}
-              </p>
+              </motion.p>
 
-              <div className="mb-6">
+              <motion.div className="mb-6"
+              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, x: 60 }}
+              transition={{ duration: 0.5 }}
+              >
                 <strong>Rate this animal:</strong>
                 <div className="text-lg">
                   {[1, 2, 3, 4, 5].map((star) => (
@@ -81,7 +94,7 @@ export default function Animal() {
                     </span>
                   ))}
                 </div>
-              </div>
+              </motion.div>
 
               <button
                 onClick={() => toggleFavorite(item.name)}
@@ -94,7 +107,11 @@ export default function Animal() {
                 {favorites.includes(item.name) ? "Remove from Favorites" : "Add to Favorites"}
               </button>
 
-              <ul className="mt-6 space-y-1 text-gray-700 text-sm">
+              <motion.ul className="mt-6 space-y-1 text-gray-700 text-sm"
+              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, x: 60 }}
+              transition={{ duration: 0.5 }}
+              >
                 <li><strong>Kingdom:</strong> {item.taxonomy?.kingdom}</li>
                 <li><strong>Phylum:</strong> {item.taxonomy?.phylum}</li>
                 <li><strong>Class:</strong> {item.taxonomy?.class}</li>
@@ -106,7 +123,7 @@ export default function Animal() {
                 <li><strong>Top Speed:</strong> {item.characteristics?.top_speed}</li>
                 <li><strong>Weight:</strong> {item.characteristics?.weight}</li>
                 <li><strong>Habitat:</strong> {item.characteristics?.habitat}</li>
-              </ul>
+              </motion.ul>
 
               <Link
                 to="/"

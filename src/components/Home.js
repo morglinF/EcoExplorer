@@ -79,7 +79,6 @@ export default function Home() {
     <div
       className="bg-gradient-to-r from-green-500 to-green-700 min-h-screen"
       style={{
-        // backgroundImage: "url('/images/panda.jpg')",
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}

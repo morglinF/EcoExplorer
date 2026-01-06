@@ -1,6 +1,5 @@
 // Navbar.js
 import { useState } from 'react';
-import Home from './Home';
 import { motion } from "framer-motion";
 
 
@@ -32,9 +31,7 @@ export default function Navbar() {
           >
             <a href="/" className="text-white hover:bg-blue-700 px-3 py-2 rounded-md text-sm font-medium">Home</a>
             <a href="/about" className="text-white hover:bg-blue-700 px-3 py-2 rounded-md text-sm font-medium">About</a>
-            <a href="/explore" className="text-white hover:bg-blue-700 px-3 py-2 rounded-md text-sm font-medium">Explore</a>
-            <a href="/contact" className="text-white hover:bg-blue-700 px-3 py-2 rounded-md text-sm font-medium">Contact</a>
-          </motion.div>
+            </motion.div>
 
           {/* Mobile Menu Button */}
           <div className="flex md:hidden">
@@ -61,8 +58,6 @@ export default function Navbar() {
         <div className="md:hidden bg-blue-500">
           <a href="/" className="block text-white px-4 py-2 hover:bg-blue-700">Home</a>
           <a href="/about" className="block text-white px-4 py-2 hover:bg-blue-700">About</a>
-          <a href="/explore" className="block text-white px-4 py-2 hover:bg-blue-700">Explore</a>
-          <a href="/contact" className="block text-white px-4 py-2 hover:bg-blue-700">Contact</a>
         </div>
       )}
     </nav>
