@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 export default function About() {
   return (
     <section
-      className="relative bg-gradient-to-r from-green-500 to-green-700"
+      className="relative bg-gradient-to-r from-green-500 to-green-700 min-h-screen"
       style={{ backgroundImage: "url('/images/background.jpg')", backgroundSize: 'cover', backgroundPosition: 'center' }}
     >
        <Navbar/>
