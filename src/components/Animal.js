@@ -101,7 +101,7 @@ export default function Animal() {
               <img
                 src={`/images/${item.name.toLowerCase()}.jpg`}
                 alt={item.name}
-                className="w-full h-full object-cover"
+                className="w-full h-full object-contain"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
               <div className="absolute bottom-6 left-6">
@@ -209,7 +209,7 @@ export default function Animal() {
                 <img
                   src={`/images/${item.name.toLowerCase()}.jpg`}
                   alt={item.name}
-                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                  className="w-full h-full object-contain hover:scale-105 transition-transform duration-500"
                 />
               </motion.div>
 

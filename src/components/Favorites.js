@@ -97,7 +97,7 @@ export default function Favorites() {
                   <img
                     src={`/images/${name.toLowerCase()}.jpg`}
                     alt={name}
-                    className="w-24 h-24 object-cover rounded mb-2 mx-auto"
+                    className="w-24 h-24 object-contain rounded mb-2 mx-auto"
                   />
                   <p className="text-white text-center">{name}</p>
                 </div>
@@ -126,7 +126,7 @@ export default function Favorites() {
                   <img
                     src={`/images/${animal.name.toLowerCase()}.jpg`}
                     alt={animal.name}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-contain"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
                   <div className="absolute bottom-6 left-6">
@@ -222,7 +222,7 @@ export default function Favorites() {
                       <img
                         src={`/images/${animal.name.toLowerCase()}.jpg`}
                         alt={animal.name}
-                        className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                        className="w-full h-full object-contain hover:scale-105 transition-transform duration-500"
                       />
                     </motion.div>
                   </div>
