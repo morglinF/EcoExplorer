@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import { motion } from "framer-motion";
+import Navbar from "./Navbar";
 
 export default function Animal() {
   const [animalData, setAnimalData] = useState([]);
@@ -66,6 +67,9 @@ export default function Animal() {
     <div className="bg-gradient-to-br from-slate-800 via-slate-900 to-blue-900 min-h-screen relative overflow-hidden py-10">
       {/* Background overlay for depth */}
       <div className="absolute inset-0 bg-black bg-opacity-30"></div>
+      
+      <Navbar />
+      
       <div className="relative z-10">
         {loading && (
           <motion.div 

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import Navbar from "./Navbar";
+import NoFavoritesDialog from "./NoFavoritesDialog";
 
 export default function Favorites() {
   const [favorites, setFavorites] = useState([]);
@@ -103,23 +104,8 @@ export default function Favorites() {
               ))}
             </div>
           </motion.div>
-        ) : favorites.length === 0 ? (
-          <motion.div 
-            className="text-center mt-20"
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.5 }}
-          >
-            <div className="text-6xl mb-4">🦁</div>
-            <p className="text-slate-200 text-xl font-medium mb-6">No favorites yet!</p>
-            <p className="text-slate-300 mb-8">Start exploring animals and add them to your favorites.</p>
-            <Link
-              to="/"
-              className="inline-block bg-blue-500 text-white py-3 px-8 rounded-full font-semibold shadow-lg hover:bg-blue-400 hover:shadow-xl transform hover:scale-105 transition-all duration-300"
-            >
-              Explore Animals
-            </Link>
-          </motion.div>
+        ) : favorites.length === 0 || true ? ( // Temporarily force dialog display
+          <NoFavoritesDialog />
         ) : (
           <div className="space-y-12">
             {favoriteAnimals.map((animal, index) => (

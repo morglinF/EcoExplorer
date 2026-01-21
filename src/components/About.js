@@ -3,61 +3,136 @@ import { motion } from "framer-motion";
 
 export default function About() {
   return (
-    <section
-      className="relative bg-gradient-to-br from-slate-800 via-slate-900 to-blue-900 min-h-screen"
-      style={{ backgroundImage: "url('/images/background.jpg')", backgroundSize: 'cover', backgroundPosition: 'center' }}
-    >
-       <Navbar/>
-     
-      <div className="relative z-10 max-w-5xl mx-auto text-center text-white">
-        <h2 className="text-4xl font-extrabold mb-6">About EcoExplorer</h2>
-        <motion.p className="text-lg leading-relaxed mb-12 max-w-3xl mx-auto"
-        whileInView={{ opacity: 1, x: 0 }}
-        initial={{ opacity: 0, x: 60 }}
-        transition={{ duration: 0.5 }}
+    <div className="bg-gradient-to-br from-slate-800 via-slate-900 to-blue-900 min-h-screen relative overflow-hidden">
+      {/* Background overlay for depth */}
+      <div className="absolute inset-0 bg-black bg-opacity-30"></div>
+      
+      <Navbar />
+
+      <div className="relative z-10 pt-20 px-4">
+        {/* Hero Section */}
+        <motion.div 
+          className="text-center py-16"
+          initial={{ opacity: 0, y: -50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
         >
-          EcoExplorer is a web application dedicated to educating users about the fascinating world of wildlife and nature.
-          Our goal is to share engaging and accurate information about species, habitats, and global conservation efforts.
-          Explore with us and discover how small actions can make a big difference.
-        </motion.p>
+          <h1 className="text-5xl md:text-6xl font-extrabold text-white mb-4 drop-shadow-lg">
+            About EcoExplorer
+          </h1>
+          <p className="text-xl md:text-2xl text-slate-200 mb-8 drop-shadow-md max-w-3xl mx-auto">
+            Discover our passion for wildlife conservation and education
+          </p>
+        </motion.div>
 
-        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-          {/* Mission */}
-          <div className="bg-white bg-opacity-10 backdrop-blur-md p-6 rounded-2xl shadow-xl hover:scale-105 transition-transform duration-300">
-            <h3 className="text-xl font-semibold mb-3 text-blue-100">Our Mission</h3>
-            <motion.p className="text-base text-white"
-            whileInView={{ opacity: 1, y: 0 }}
-            initial={{ opacity: 0, y: 60 }}
-            transition={{ duration: 0.5 }}
+        {/* Main Content */}
+        <div className="max-w-6xl mx-auto">
+          <motion.div 
+            className="text-center mb-16"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
+            <p className="text-lg leading-relaxed text-slate-200 max-w-4xl mx-auto">
+              EcoExplorer is a comprehensive web application dedicated to educating users about the fascinating world of wildlife and nature.
+              Our goal is to share engaging and accurate information about species, habitats, and global conservation efforts.
+              Through interactive exploration and detailed insights, we inspire curiosity and action for a sustainable future.
+            </p>
+          </motion.div>
+
+          {/* Stats Section */}
+          <motion.div 
+            className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+          >
+            {[
+              { number: "1000+", label: "Species" },
+              { number: "50+", label: "Habitats" },
+              { number: "24/7", label: "Learning" },
+              { number: "∞", label: "Curiosity" }
+            ].map((stat, index) => (
+              <motion.div
+                key={stat.label}
+                className="bg-white bg-opacity-10 backdrop-blur-sm rounded-xl p-6 text-center shadow-lg border border-white border-opacity-20"
+                whileHover={{ scale: 1.05, y: -5 }}
+                transition={{ duration: 0.3 }}
+              >
+                <div className="text-3xl font-bold text-blue-300 mb-2">{stat.number}</div>
+                <div className="text-slate-200 font-medium">{stat.label}</div>
+              </motion.div>
+            ))}
+          </motion.div>
+
+          {/* Mission Cards */}
+          <div className="grid gap-8 md:grid-cols-3">
+            {/* Mission */}
+            <motion.div 
+              className="bg-white bg-opacity-10 backdrop-blur-lg rounded-2xl p-8 shadow-2xl border border-white border-opacity-20 group"
+              whileHover={{ scale: 1.02, y: -5, transition: { duration: 0.3 } }}
+              initial={{ opacity: 0, x: -50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, delay: 0.6 }}
             >
-              We aim to spread awareness about wildlife conservation and inspire action through curiosity and education.
-            </motion.p>
-          </div>
+              <div className="text-4xl mb-4">🎯</div>
+              <h3 className="text-2xl font-bold mb-4 text-blue-200 group-hover:text-blue-100 transition-colors">Our Mission</h3>
+              <p className="text-slate-200 leading-relaxed">
+                We aim to spread awareness about wildlife conservation and inspire action through curiosity, education, and interactive exploration of the natural world.
+              </p>
+            </motion.div>
 
-          {/* Vision */}
-          <div className="bg-white bg-opacity-10 backdrop-blur-md p-6 rounded-2xl shadow-xl hover:scale-105 transition-transform duration-300">
-            <h3 className="text-xl font-semibold mb-3 text-blue-100">Our Vision</h3>
-            <motion.p className="text-base text-white"
-            whileInView={{ opacity: 1, y: 0 }}
-            initial={{ opacity: 0, y: 60 }}
-            transition={{ duration: 0.5 }}
+            {/* Vision */}
+            <motion.div 
+              className="bg-white bg-opacity-10 backdrop-blur-lg rounded-2xl p-8 shadow-2xl border border-white border-opacity-20 group"
+              whileHover={{ scale: 1.02, y: -5, transition: { duration: 0.3 } }}
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.8 }}
             >
-              A world where people actively protect nature, ensuring a sustainable future for all living beings.
-            </motion.p>
+              <div className="text-4xl mb-4">🔭</div>
+              <h3 className="text-2xl font-bold mb-4 text-blue-200 group-hover:text-blue-100 transition-colors">Our Vision</h3>
+              <p className="text-slate-200 leading-relaxed">
+                A world where people actively protect nature, ensuring a sustainable future for all living beings through informed decisions and collective action.
+              </p>
+            </motion.div>
+
+            {/* Values */}
+            <motion.div 
+              className="bg-white bg-opacity-10 backdrop-blur-lg rounded-2xl p-8 shadow-2xl border border-white border-opacity-20 group"
+              whileHover={{ scale: 1.02, y: -5, transition: { duration: 0.3 } }}
+              initial={{ opacity: 0, x: 50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, delay: 1.0 }}
+            >
+              <div className="text-4xl mb-4">🌱</div>
+              <h3 className="text-2xl font-bold mb-4 text-blue-200 group-hover:text-blue-100 transition-colors">Our Values</h3>
+              <p className="text-slate-200 leading-relaxed">
+                We value passion for wildlife, commitment to conservation, scientific accuracy, and building meaningful connections between people and nature.
+              </p>
+            </motion.div>
           </div>
 
-          {/* Values */}
-          <div className="bg-white bg-opacity-10 backdrop-blur-md p-6 rounded-2xl shadow-xl hover:scale-105 transition-transform duration-300">
-            <h3 className="text-xl font-semibold mb-3 text-blue-100">Our Values</h3>
-            <motion.p className="text-base text-white"
-            whileInView={{ opacity: 1, y: 0 }}
-            initial={{ opacity: 0, y: 60 }}
-            transition={{ duration: 0.5 }}>
-              We value passion for wildlife, a commitment to conservation, and building connections between people and nature.
-            </motion.p>
-          </div>
+          {/* Call to Action */}
+          <motion.div 
+            className="text-center mt-16"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 1.2 }}
+          >
+            <h3 className="text-2xl font-bold text-white mb-4">Ready to Explore?</h3>
+            <p className="text-slate-200 mb-8 max-w-2xl mx-auto">
+              Join thousands of nature enthusiasts in discovering the wonders of wildlife. Start your journey today!
+            </p>
+            <a
+              href="/"
+              className="inline-block bg-blue-500 text-white py-3 px-8 rounded-full font-semibold shadow-lg hover:bg-blue-400 hover:shadow-xl transform hover:scale-105 transition-all duration-300"
+            >
+              Start Exploring →
+            </a>
+          </motion.div>
         </div>
       </div>
-    </section>
+    </div>
   );
 }
