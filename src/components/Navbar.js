@@ -7,7 +7,7 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="bg-green-500">
+    <nav className="bg-slate-900 bg-opacity-80 backdrop-blur-md shadow-lg">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           
@@ -29,8 +29,9 @@ export default function Navbar() {
         transition={{ duration: 0.5 }}
          
           >
-            <a href="/" className="text-white hover:bg-blue-700 px-3 py-2 rounded-md text-sm font-medium">Home</a>
-            <a href="/about" className="text-white hover:bg-blue-700 px-3 py-2 rounded-md text-sm font-medium">About</a>
+            <a href="/" className="text-white hover:bg-slate-700 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-300">Home</a>
+            <a href="/favorites" className="text-white hover:bg-slate-700 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-300">Favorites</a>
+            <a href="/about" className="text-white hover:bg-slate-700 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-300">About</a>
             </motion.div>
 
           {/* Mobile Menu Button */}
@@ -55,9 +56,10 @@ export default function Navbar() {
 
       {/* Mobile Menu */}
       {isOpen && (
-        <div className="md:hidden bg-blue-500">
-          <a href="/" className="block text-white px-4 py-2 hover:bg-blue-700">Home</a>
-          <a href="/about" className="block text-white px-4 py-2 hover:bg-blue-700">About</a>
+        <div className="md:hidden bg-slate-800 bg-opacity-90 backdrop-blur-md">
+          <a href="/" className="block text-white px-4 py-2 hover:bg-slate-700 transition-colors duration-300">Home</a>
+          <a href="/favorites" className="block text-white px-4 py-2 hover:bg-slate-700 transition-colors duration-300">Favorites</a>
+          <a href="/about" className="block text-white px-4 py-2 hover:bg-slate-700 transition-colors duration-300">About</a>
         </div>
       )}
     </nav>

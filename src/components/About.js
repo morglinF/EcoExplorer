@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 export default function About() {
   return (
     <section
-      className="relative bg-gradient-to-r from-green-500 to-green-700 min-h-screen"
+      className="relative bg-gradient-to-br from-slate-800 via-slate-900 to-blue-900 min-h-screen"
       style={{ backgroundImage: "url('/images/background.jpg')", backgroundSize: 'cover', backgroundPosition: 'center' }}
     >
        <Navbar/>
@@ -24,7 +24,7 @@ export default function About() {
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {/* Mission */}
           <div className="bg-white bg-opacity-10 backdrop-blur-md p-6 rounded-2xl shadow-xl hover:scale-105 transition-transform duration-300">
-            <h3 className="text-xl font-semibold mb-3 text-green-100">Our Mission</h3>
+            <h3 className="text-xl font-semibold mb-3 text-blue-100">Our Mission</h3>
             <motion.p className="text-base text-white"
             whileInView={{ opacity: 1, y: 0 }}
             initial={{ opacity: 0, y: 60 }}
@@ -36,7 +36,7 @@ export default function About() {
 
           {/* Vision */}
           <div className="bg-white bg-opacity-10 backdrop-blur-md p-6 rounded-2xl shadow-xl hover:scale-105 transition-transform duration-300">
-            <h3 className="text-xl font-semibold mb-3 text-green-100">Our Vision</h3>
+            <h3 className="text-xl font-semibold mb-3 text-blue-100">Our Vision</h3>
             <motion.p className="text-base text-white"
             whileInView={{ opacity: 1, y: 0 }}
             initial={{ opacity: 0, y: 60 }}
@@ -48,7 +48,7 @@ export default function About() {
 
           {/* Values */}
           <div className="bg-white bg-opacity-10 backdrop-blur-md p-6 rounded-2xl shadow-xl hover:scale-105 transition-transform duration-300">
-            <h3 className="text-xl font-semibold mb-3 text-green-100">Our Values</h3>
+            <h3 className="text-xl font-semibold mb-3 text-blue-100">Our Values</h3>
             <motion.p className="text-base text-white"
             whileInView={{ opacity: 1, y: 0 }}
             initial={{ opacity: 0, y: 60 }}
