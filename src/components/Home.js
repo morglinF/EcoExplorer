@@ -51,7 +51,7 @@ export default function Home() {
       const res = await fetch(`https://api.api-ninjas.com/v1/animals?name=${text}`,
         {
        headers: {
-            'X-Api-Key': 'hfeI+Fcgn0F9eNTv2ohbbg==rDCVe8wlqX1pn2Om'}
+            'X-Api-Key': process.env.REACT_APP_ANIMAL_API_KEY}
         
         });
       if (!res.ok) throw new Error("Network response was not ok");

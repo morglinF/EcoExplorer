@@ -20,16 +20,22 @@ export default function Animal() {
         
         });
         const data = await response.json();
-        setAnimalData(data);
+        
+        if (Array.isArray(data) && data.length > 0) {
+          setAnimalData(data);
 
-        const storedFavorites = JSON.parse(localStorage.getItem("favorites")) || [];
-        setFavorites(storedFavorites);
+          const storedFavorites = JSON.parse(localStorage.getItem("favorites")) || [];
+          setFavorites(storedFavorites);
 
-        const initialRatings = {};
-        data.forEach((item) => {
-          initialRatings[item.name] = parseInt(localStorage.getItem(item.name)) || 0;
-        });
-        setRatings(initialRatings);
+          const initialRatings = {};
+          data.forEach((item) => {
+            initialRatings[item.name] = parseInt(localStorage.getItem(item.name)) || 0;
+          });
+          setRatings(initialRatings);
+        } else {
+          setAnimalData([]);
+          console.error("No data or invalid format for", name);
+        }
       } catch (err) {
         console.error("Failed to fetch animal data:", err);
       } finally {

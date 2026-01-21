@@ -20,7 +20,7 @@ export default function Favorites() {
           for (const name of stored) {
             const response = await fetch(`https://api.api-ninjas.com/v1/animals?name=${name}`, {
               headers: {
-                'X-Api-Key': 'hfeI+Fcgn0F9eNTv2ohbbg==rDCVe8wlqX1pn2Om'
+                'X-Api-Key': process.env.REACT_APP_ANIMAL_API_KEY
               }
             });
             if (!response.ok) {
@@ -28,7 +28,11 @@ export default function Favorites() {
               continue; // Skip this one
             }
             const data = await response.json();
-            animalsData.push(...data);
+            if (Array.isArray(data)) {
+              animalsData.push(...data);
+            } else {
+              console.error(`Invalid data format for ${name}`);
+            }
             // Small delay to avoid rate limiting
             await new Promise(resolve => setTimeout(resolve, 200));
           }
