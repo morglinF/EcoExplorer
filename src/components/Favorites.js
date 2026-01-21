@@ -104,7 +104,7 @@ export default function Favorites() {
               ))}
             </div>
           </motion.div>
-        ) : favorites.length === 0 || true ? ( // Temporarily force dialog display
+        ) : favorites.length === 0 ? (
           <NoFavoritesDialog />
         ) : (
           <div className="space-y-12">
